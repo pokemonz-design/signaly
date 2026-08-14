@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сигналы тревоги</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f0f5;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #111;
+    }
+
+    .alerts-widget {
+      width: 757px;
+      height: 430px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #ece4ee;
+      overflow: hidden;
+    }
+
+    /* Шапка уменьшена в 2 раза */
+    .hero {
+      height: 59px;
+      padding: 10px 28px;
+      background: linear-gradient(
+        135deg,
+        #8c5a9b 0%,
+        #b78bc0 48%,
+        #e7dce9 100%
+      );
+      display: flex;
+      align-items: center;
+    }
+
+    /* Шрифт заголовка уменьшен примерно в 1,5 раза */
+    .hero-title {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1;
+      letter-spacing: -0.7px;
+      font-weight: 700;
+      color: #080808;
+    }
+
+    .content {
+      padding: 16px 28px 18px;
+    }
+
+    .intro {
+      margin: 0 0 12px;
+      max-width: 690px;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .alerts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px 14px;
+    }
+
+    .alert {
+      border-top: 1px solid #ddd2df;
+      background: #fff;
+    }
+
+    .alert-button {
+      width: 100%;
+      min-height: 43px;
+      padding: 7px 4px 7px 0;
+      border: 0;
+      background: transparent;
+      display: grid;
+      grid-template-columns: 25px 1fr 20px;
+      gap: 7px;
+      align-items: center;
+      text-align: left;
+      cursor: pointer;
+      color: #111;
+    }
+
+    .number {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #874596;
+    }
+
+    .alert-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .plus {
+      color: #874596;
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .alert.open .plus {
+      transform: rotate(45deg);
+    }
+
+    .details {
+      display: none;
+      padding: 2px 8px 12px 32px;
+      font-family: Arial, sans-serif;
+    }
+
+    .alert.open .details {
+      display: block;
+    }
+
+    .details-title {
+      margin-bottom: 6px;
+      color: #874596;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    /* Расшифровки увеличены в 1,5 раза */
+    .details ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .details li {
+      margin-bottom: 5px;
+      font-size: 16.5px;
+      line-height: 1.3;
+      color: #222;
+    }
+
+    .footer-note {
+      margin-top: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="alerts-widget">
+
+  <div class="hero">
+    <h2 class="hero-title">Сигналы тревоги для CFO</h2>
+  </div>
+
+  <div class="content">
+
+    <p class="intro">
+      Нажмите на сигнал, чтобы увидеть показатели, которые стоит проверить сразу,
+      если выручка растет, а финансовый результат не успевает за ней.
+    </p>
+
+    <div class="alerts">
+
+      <div class="alert">
+        <button class="alert-button" type="button">
+          <span class="number">01</span>
+          <span class="alert-title">Фактическая цена снижается</span>
+          <span class="plus">+</span>
+        </button>
+
+        <div class="details">
+          <div class="details-title">Проверьте</div>
+          <ul>
+            <li>Факт цены против действующего прайса.</li>
+            <li>Сверхлимитные скидки.</li>
+            <li>Долю продаж по старым ценам.</li>
+            <li>Среднюю цену реализации.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert">
+        <button class="alert-button" type="button">
+          <span class="number">02</span>
+          <span class="alert-title">Выручка растет быстрее валовой прибыли</span>
+          <span class="plus">+</span>
+        </button>
+
+        <div class="details">
+          <div class="details-title">Проверьте</div>
+          <ul>
+            <li>Маржинальный доход по продуктам.</li>
+            <li>Долю низкомаржинальных SKU.</li>
+            <li>Структуру продаж против бюджета.</li>
+            <li>Маржу по каналам и проектам.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert">
+        <button class="alert-button" type="button">
+          <span class="number">03</span>
+          <span class="alert-title">Себестоимость растет, цены не меняются</span>
+          <span class="plus">+</span>
+        </button>
+
+        <div class="details">
+          <div class="details-title">Проверьте</div>
+          <ul>
+            <li>Текущие закупочные цены.</li>
+            <li>Прогнозную себестоимость.</li>
+            <li>Курс валют и тарифы.</li>
+            <li>План-факт маржи.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert">
+        <button class="alert-button" type="button">
+          <span class="number">04</span>
+          <span class="alert-title">Обслуживание клиентов дорожает</span>
+          <span class="plus">+</span>
+        </button>
+
+        <div class="details">
+          <div class="details-title">Проверьте</div>
+          <ul>
+            <li>Логистику по клиентам и направлениям.</li>
+            <li>Частоту и размер поставок.</li>
+            <li>Стоимость нестандартных операций.</li>
+            <li>Cost-to-Serve крупнейших клиентов.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert">
+        <button class="alert-button" type="button">
+          <span class="number">05</span>
+          <span class="alert-title">KPI выполнены, прибыль — нет</span>
+          <span class="plus">+</span>
+        </button>
+
+        <div class="details">
+          <div class="details-title">Проверьте</div>
+          <ul>
+            <li>EBITDA bridge по операционным факторам.</li>
+            <li>Загрузку производственных мощностей.</li>
+            <li>Влияние решений подразделений друг на друга.</li>
+            <li>Связь KPI с маржой и денежным потоком.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="alert">
+        <button class="alert-button" type="button">
+          <span class="number">06</span>
+          <span class="alert-title">После продажи расходы продолжают расти</span>
+          <span class="plus">+</span>
+        </button>
+
+        <div class="details">
+          <div class="details-title">Проверьте</div>
+          <ul>
+            <li>Возвраты и кредит-ноты по клиентам.</li>
+            <li>Бонусы и маркетинговые выплаты.</li>
+            <li>Претензии и стоимость брака.</li>
+            <li>Итоговую маржу после всех расходов.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const alerts = document.querySelectorAll(".alert");
+
+  alerts.forEach(alert => {
+    const button = alert.querySelector(".alert-button");
+
+    button.addEventListener("click", () => {
+      const isOpen = alert.classList.contains("open");
+
+      alerts.forEach(item => item.classList.remove("open"));
+
+      if (!isOpen) {
+        alert.classList.add("open");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
